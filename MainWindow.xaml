@@ -1,0 +1,69 @@
+<Window Title="Test app"
+    x:Class="PixelPawsAssignment.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:PixelPawsAssignment"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:muxc="using:Microsoft.UI.Xaml.Controls" 
+    mc:Ignorable="d">
+    <Grid>
+        <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled">
+            <Border Background="White">
+                <StackPanel Orientation="Vertical" Background="#ededed" Margin="20">
+                    <Border Width="350" Height="200" Background="White" Margin="0,25" CornerRadius="12.5,16,12.5,16">
+                        <!-- StackPanel for vertically stacking items -->
+                        <StackPanel VerticalAlignment="Center" HorizontalAlignment="Left" Margin="15">
+                            <!--First Section-->
+                            <TextBlock Text="About" Foreground="#4169E1" FontSize="15" FontWeight="Bold" Margin="0,0,0,5" />
+
+                            <!-- Horizontal StackPanel to align App Version and version number on the same line -->
+                            <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
+                                <TextBlock Text="App Version: " Foreground="Black" FontSize="16" Margin="0"/>
+                                <TextBlock Text="xx.xx.xx" Foreground="Gray"
+                                           FontSize="16" Margin="5,0,0,0"/>
+                            </StackPanel>
+
+                            <!-- Horizontal Line -->
+                            <Line X1="0" Y1="0" X2="350" Y2="0" Stroke="Black" StrokeThickness="1" Margin="0,0,0,10"/>
+                            <TextBlock Text="Heading" Foreground="#4169E1" FontSize="15" FontWeight="Bold" Margin="0,0,0,8"/>
+                            <TextBlock Text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua." 
+                                       Foreground="Black" TextWrapping="Wrap" FontSize="14"/>
+                        </StackPanel>
+                    </Border>
+                    <!--Second Section-->
+                    <Canvas Width="500" Height="870">
+                        <muxc:ProgressBar x:Name="accelerationBar"  Maximum="20" Width="250" Height="80" Canvas.Left="170" Canvas.Top="250" MinHeight="80" MinWidth="80"  Background="Transparent"
+                      BorderBrush="DarkGray" 
+                      BorderThickness="0.5" >
+                            <muxc:ProgressBar.RenderTransform>
+                                <RotateTransform Angle="270" />
+                            </muxc:ProgressBar.RenderTransform>
+                        </muxc:ProgressBar>
+                        <Button Content="Accelerate" Width="150" Height="40" Click="AccelerateButton_Pressed"  Style="{StaticResource AccentButtonStyle}" Canvas.Left="145" Canvas.Top="270"/>
+                    </Canvas>
+                    <!--Third Section-->
+                    <StackPanel Margin="10,-420">
+                        <Border Width="350" Height="210" Background="White" Margin="40,-800" CornerRadius="12.5,16,12.5,16">
+                            <Expander Width="350" Height ="210"  HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,0" HorizontalContentAlignment="Left">
+                                <Expander.Header>
+                                    <TextBlock Text="Session history" Foreground="Black" FontSize="14" />
+                                </Expander.Header>
+                                <Expander.Content>
+                                    <StackPanel>
+                                        <TextBlock Text="Login time: 2024-08-28 | 11:00 AM" Foreground="Gray" FontSize="13" HorizontalAlignment="Left" />
+                                        <TextBlock Text="Session 3" Foreground="Black" FontSize="13" FontWeight="SemiBold" HorizontalAlignment="Left" />
+                                        <TextBlock Text="Login time: 2024-08-28 | 10:00 AM" Foreground="Gray" FontSize="13" HorizontalAlignment="Left" />
+                                        <TextBlock Text="Session 2" Foreground="Black" FontSize="13" HorizontalAlignment="Left" FontWeight="SemiBold"  />
+                                        <TextBlock Text="Login time: 2024-08-28 | 9:00 AM" Foreground="Gray" FontSize="13" HorizontalAlignment="Left" />
+                                        <TextBlock Text="Session 1" Foreground="Black" FontSize="13" HorizontalAlignment="Left" FontWeight="SemiBold"  />
+                                    </StackPanel>
+                                </Expander.Content>
+                            </Expander>
+                        </Border>
+                    </StackPanel>
+                </StackPanel>
+            </Border>
+        </ScrollViewer>
+    </Grid>
+</Window>
